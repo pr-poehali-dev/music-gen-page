@@ -7,7 +7,6 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@
 import { Slider } from '@/components/ui/slider';
 import Icon from '@/components/ui/icon';
 import { toast } from '@/hooks/use-toast';
-import AudioPlayer from '@/components/AudioPlayer';
 
 const Index = () => {
   const [genre, setGenre] = useState('');
@@ -36,11 +35,7 @@ const Index = () => {
     }, 3000);
   };
 
-  const examples = [
-    { title: 'Cosmic Journey', genre: 'Electronic', mood: 'Энергичное', duration: '2:45' },
-    { title: 'Sunset Dreams', genre: 'Ambient', mood: 'Спокойное', duration: '3:20' },
-    { title: 'Urban Pulse', genre: 'Hip-Hop', mood: 'Ритмичное', duration: '2:15' },
-  ];
+
 
   const features = [
     { icon: 'Sparkles', title: 'AI Генерация', description: 'Нейросеть создаёт уникальную музыку за секунды' },
@@ -180,19 +175,7 @@ const Index = () => {
           </Card>
         </section>
 
-        <section className="mb-24">
-          <h2 className="text-4xl font-bold text-center mb-12">Примеры треков</h2>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
-            {examples.map((example, idx) => (
-              <AudioPlayer
-                key={idx}
-                title={example.title}
-                genre={example.genre}
-                duration={example.duration}
-              />
-            ))}
-          </div>
-        </section>
+
 
         <section className="mb-24">
           <h2 className="text-4xl font-bold text-center mb-12">Возможности</h2>
@@ -209,16 +192,7 @@ const Index = () => {
           </div>
         </section>
 
-        <section className="text-center py-20 bg-gradient-to-r from-primary/10 via-secondary/10 to-accent/10 rounded-3xl backdrop-blur-sm">
-          <h2 className="text-4xl font-bold mb-4">Готов создать свой хит?</h2>
-          <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
-            Присоединяйся к сообществу создателей музыки. Начни генерировать уже сегодня
-          </p>
-          <Button size="lg" className="text-lg h-14 px-8 glow-strong">
-            <Icon name="Sparkles" size={24} className="mr-2" />
-            Начать бесплатно
-          </Button>
-        </section>
+
       </div>
     </div>
   );
