@@ -7,6 +7,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@
 import { Slider } from '@/components/ui/slider';
 import Icon from '@/components/ui/icon';
 import { toast } from '@/hooks/use-toast';
+import AudioPlayer from '@/components/AudioPlayer';
 
 const Index = () => {
   const [genre, setGenre] = useState('');
@@ -181,27 +182,14 @@ const Index = () => {
 
         <section className="mb-24">
           <h2 className="text-4xl font-bold text-center mb-12">Примеры треков</h2>
-          <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
             {examples.map((example, idx) => (
-              <Card key={idx} className="p-6 hover:scale-105 transition-transform duration-300 bg-card/80 backdrop-blur-sm group cursor-pointer">
-                <div className="w-full h-40 bg-gradient-to-br from-primary/30 via-secondary/30 to-accent/30 rounded-lg mb-4 flex items-center justify-center group-hover:glow transition-all">
-                  <Icon name="Music" size={48} className="text-primary animate-wave" />
-                </div>
-                <h3 className="text-xl font-bold mb-2">{example.title}</h3>
-                <div className="flex justify-between text-sm text-muted-foreground mb-4">
-                  <span>{example.genre}</span>
-                  <span>{example.duration}</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <Button size="sm" variant="outline" className="flex-1">
-                    <Icon name="Play" size={16} className="mr-1" />
-                    Слушать
-                  </Button>
-                  <Button size="sm" variant="ghost">
-                    <Icon name="Download" size={16} />
-                  </Button>
-                </div>
-              </Card>
+              <AudioPlayer
+                key={idx}
+                title={example.title}
+                genre={example.genre}
+                duration={example.duration}
+              />
             ))}
           </div>
         </section>
